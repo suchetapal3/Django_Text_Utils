@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text Utils</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Text Utils</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Welcome to Sucheta's Text Utils website!</strong> You can format your text here
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <form action='/analyze' method='post'> {%csrf_token%}
+      <div class="container">
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">Enter your text here</label>
+          <textarea class="form-control" name="text" id="exampleFormControlTextarea1" rows="10"></textarea>
+        </div>
+
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" name="removepunc" id="flexSwitchCheckChecked" />
+          <label class="form-check-label" for="flexSwitchCheckChecked">Remove Punctuations</label>
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" name="fullcaps" id="flexSwitchCheckChecked" />
+          <label class="form-check-label" for="flexSwitchCheckChecked">UpperCase</label>
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" name="newlineremover" id="flexSwitchCheckChecked" />
+          <label class="form-check-label" for="flexSwitchCheckChecked">New Line Remover</label>
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" name="extraspaceremover" id="flexSwitchCheckChecked" />
+          <label class="form-check-label" for="flexSwitchCheckChecked">Extra Space Remover</label>
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" name="charctercounter" id="flexSwitchCheckChecked" />
+          <label class="form-check-label" for="flexSwitchCheckChecked">Character Counter</label>
+        </div>
+        <input class="btn btn-primary" type="submit" value="Analyze Text" />
+      </div>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  </body>
+</html>

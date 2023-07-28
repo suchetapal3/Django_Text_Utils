@@ -1,0 +1,5 @@
+My name is sucheta.
+I'm a web developer.
+Front end-HTML,CSS,JS,Bootstrap,React
+Backend-Python, Django
+Database-SQL Server, MongoDB
