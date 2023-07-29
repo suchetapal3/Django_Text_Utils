@@ -16,7 +16,7 @@ from django.shortcuts import render, redirect
 
 def index(request):
     return render(request, 'index.html')
-    #return HttpResponse("Home")
+    
 
 def analyze(request):
     #get the text-input text
@@ -40,8 +40,7 @@ def analyze(request):
                 analyzed = analyzed + char
         params = {'purpose':'Removed Punctuations', 'analyzed_text':analyzed}
         djtext = analyzed
-        #return render(request, 'analyze.html',params)
-    
+            
     if fullcaps=='on':
         analyzed = ""
         for char in djtext:
@@ -49,7 +48,6 @@ def analyze(request):
 
         params = {'purpose':'Changed to Uppercase', 'analyzed_text':analyzed}
         djtext = analyzed
-        #return render(request, 'analyze.html', params)
     
     if(newlineremover=='on'):
         analyzed = ""
@@ -57,9 +55,7 @@ def analyze(request):
             if char !="\n" and char!='\r':
                 analyzed += char
         params = {'purpose':'Removed NewLines', 'analyzed_text':analyzed}
-        djtext = analyzed
-        #return render(request, 'analyze.html',params)
-    
+        djtext = analyzed    
 
     if(extraspaceremover=='on'):
         analyzed = ""
@@ -68,7 +64,6 @@ def analyze(request):
                 analyzed += char
         params = {'purpose':'Extra Space Remover', 'analyzed_text':analyzed}
         djtext = analyzed
-        #return render(request, 'analyze.html',params)
     
     if(charctercounter=='on'):
         char_count = 0
@@ -76,8 +71,9 @@ def analyze(request):
             print(char)
             if char!=" " and char!='\r' and char!='\n':
                 char_count += 1
-        
-        #params = {'purpose':'Character Counter', 'analyzed_text':analyzed}
+
+        params = {'purpose':'Text utils', 'analyzed_text':analyzed, 'Characters':char_count}
+    
 
     if(charctercounter=='off'):
         char_count = 0   
@@ -85,7 +81,6 @@ def analyze(request):
     if(removepunc!='on' and fullcaps!='on' and newlineremover!='on' and extraspaceremover!='on' and charctercounter!='on'):
         return HttpResponse('Error-Please select any operation and try again')
 
-    params = {'purpose':'All Text Utils checked', 'analyzed_text':analyzed, 'Characters':char_count}
         
     return render(request, 'analyze.html',params)
     
